@@ -1,95 +1,95 @@
-{% load static %}
+    {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mach X</title>
-    <link rel="icon" type="image/png" href="{% static 'icon.png' %}">
-    <style>
-        body {
-            background: url("{% static 'bg (2).jpg' %}");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mach X</title>
+        <link rel="icon" type="image/png" href="{% static 'icon.png' %}">
+        <style>
+            body {
+                background: url("{% static 'bg (2).jpg' %}");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
 
-        @font-face {
-            font-family: blinkhead;
-            src: url("{% static 'BlinkHead-Fill.ttf' %}");
-        }
+            @font-face {
+                font-family: blinkhead;
+                src: url("{% static 'BlinkHead-Fill.ttf' %}");
+            }
 
-        .menu-home {
-            display: flex;
-            padding: 1.2%;
-            border-radius: 25%;
-        }
+            .menu-home {
+                display: flex;
+                padding: 1.2%;
+                border-radius: 25%;
+            }
 
-        .menu-home img {
-            width: 14%;
-            height: auto;
-            filter: drop-shadow(1px 1px 0 black) drop-shadow(2.9px -2px 0px #923);
-            transition: filter 0.3s ease;
-        }
+            .menu-home img {
+                width: 14%;
+                height: auto;
+                filter: drop-shadow(1px 1px 0 black) drop-shadow(2.9px -2px 0px #923);
+                transition: filter 0.3s ease;
+            }
 
-        .menu-home img:hover {
-            filter: drop-shadow(0 0 20px #ffd700) drop-shadow(0 0 40px #ffd700) drop-shadow(0 0 60px #ffd700);
-        }
+            .menu-home img:hover {
+                filter: drop-shadow(0 0 20px #ffd700) drop-shadow(0 0 40px #ffd700) drop-shadow(0 0 60px #ffd700);
+            }
 
-        ul.navmenu {
-            display: flex;
-            justify-content: space-evenly;
-            justify-items: stretch;
-            background-color: #e8b923;
-            filter: drop-shadow(1px 1px 0 black) drop-shadow(4px 4px 0px #923);
-            width: 490px;
-            height: 60px;
-            align-items: stretch;
-            flex-direction: row;
-            flex-flow: row;
-            margin-left: 50%;
-            border-radius: 10px;
-            flex-wrap: wrap;
-            padding: 0px;
-            text-align: center;
-            font-family: blinkhead;
-            font-size: 80%;
-        }
+            ul.navmenu {
+                display: flex;
+                justify-content: space-evenly;
+                justify-items: stretch;
+                background-color: #e8b923;
+                filter: drop-shadow(1px 1px 0 black) drop-shadow(4px 4px 0px #923);
+                width: 490px;
+                height: 60px;
+                align-items: stretch;
+                flex-direction: row;
+                flex-flow: row;
+                margin-left: 50%;
+                border-radius: 10px;
+                flex-wrap: wrap;
+                padding: 0px;
+                text-align: center;
+                font-family: blinkhead;
+                font-size: 80%;
+            }
 
-        ul.navmenu li {
-            display: flex;
-            list-style-type: none;
-            width: 60px;
-            justify-content: center;
-            align-items: center;
-        }
+            ul.navmenu li {
+                display: flex;
+                list-style-type: none;
+                width: 60px;
+                justify-content: center;
+                align-items: center;
+            }
 
-        ul.navmenu a {
-            width: 100%;
-            height: 100%;
-            color: #923;
-            text-decoration: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: text-shadow 0.3s ease;
-        }
+            ul.navmenu a {
+                width: 100%;
+                height: 100%;
+                color: #923;
+                text-decoration: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: text-shadow 0.3s ease;
+            }
 
-        ul.navmenu a:hover {
-            color: white;
-            text-shadow: 0 0 40px white, 0 0 80px white, 0 0 120px white;
-        }
-    </style>
-</head>
-<body>
-    <div class="menu-home">
-        <img src="{% static 'logo.png' %}" alt="MachX">
-        <ul class="navmenu">
-            <li><a href="#">About Mach</a></li>
-            <li><a href="#">Mach Premium</a></li>
-            <li><a href="#">MachX Problems</a></li>
-            <li><a href="#">Mach in</a></li>
-        </ul>
-    </div>
-</body>
-</html>
+            ul.navmenu a:hover {
+                color: white;
+                text-shadow: 0 0 40px white, 0 0 80px white, 0 0 120px white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="menu-home">
+            <img src="{% static 'logo.png' %}" alt="MachX">
+            <ul class="navmenu">
+                <li><a href="#">About Mach</a></li>
+                <li><a href="#">Mach Premium</a></li>
+                <li><a href="#">MachX Problems</a></li>
+                <li><a href="{% url 'login' %}">Mach in</a></li>
+            </ul>
+        </div>
+    </body>
+    </html>
