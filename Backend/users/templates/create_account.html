@@ -115,14 +115,23 @@
     }
 
     .login__field {
-      padding: 20px 0px;	
+      margin-top: 20px;
       position: relative;	
+    }
+
+    #confirm{
+      margin-bottom: 20px;
     }
 
     .login__icon {
       position: absolute;
-      top: 30px;
+      top: 10px;
       color: #7875B5;
+    }
+
+    #right_arrow {
+      font-size: 15px;
+      font-weight: bold;
     }
 
     .login__input {
@@ -146,7 +155,7 @@
     .login__submit {
       background: #fff;
       font-size: 14px;
-      margin-top: 13px;
+      margin-top: 10px;
       padding: 16px 20px;
       border-radius: 26px;
       border: 1px solid #D4D3E8;
@@ -201,18 +210,20 @@
       transform: scale(1.5);	
     }
 
-	.forgot_password{
-		position: relative;
+	.text{
+		position: absolute;
 		color: #7875B5;
 		text-decoration: none;
-		padding-left: 9px;
+		padding-left: 10px;
+    padding-top: 10px;
 	}
 
-	.create_account{
+	.login_link{
 		position: relative;
 		color: #7875B5;
-		text-decoration: none;
-		padding-left: 9px;
+		padding-left: 10px;
+    font-size: 15px;
+    font-weight: bold;
 	}
 
 	.logo{
@@ -220,7 +231,7 @@
 		position: absolute;
 		margin: 28px 100px;
 		filter: drop-shadow(-1px 1px 0px rgba(146, 93, 207, 0.7));
-	}
+  }
 
   </style>
 </head>
@@ -233,21 +244,26 @@
         <form class="login">
           <div class="login__field">
             <i class="login__icon fas fa-user"></i>
-            <input type="text" id="create_account" class="login__input" placeholder="User name / Email">
+            <input type="text" class="login__input" placeholder="User name / Email">
           </div>
           <div class="login__field">
             <i class="login__icon fas fa-lock"></i>
-            <input type="password" id="password" class="login__input" placeholder="Password">
+            <input type="password" class="login__input" placeholder="Password">
+          </div>
+          <div class="login__field">
+            <i class="login__icon fas fa-lock"></i>
+            <input type="password" id="confirm" class="login__input" placeholder="Confirm Password">
           </div>
           <button class="button login__submit">
-            <span class="button__text">mach-In Now</span>
+            <span class="button__text">mach-create Now</span>
             <i class="button__icon fas fa-chevron-right"></i>
           </button>				
-		  <br> 
-		  <a href="#" class = "forgot_password">Forgot your password?</a>
+		  <br>
+		  <a class = "text">Already have an account?</a>
 		  <br>
 		  <br> 
-		  <a href="{% url 'create_user' %}" class = "create_account">MACH-CREATE a new account</a>
+		  <a href="{% url 'login' %}" class = "login_link">MACH-IN</a>
+      <i id="right_arrow" class="button__icon fas fa-chevron-right"></i>
         </form>
         <div class="social-login">
           <h3>mach-in via</h3>

@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 
 def login(request):
     return render(request, "login_page.html")
+
+def create_user(request):
+    return render(request, "create_account.html")
     
 def register(request):
     if request.method == 'POST':
