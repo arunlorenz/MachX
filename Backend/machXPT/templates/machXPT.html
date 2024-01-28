@@ -1,0 +1,251 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ask-Mach</title>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+  <link rel="icon" type="image/png" href="{% static 'login_icon.svg' %}">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+    @font-face {
+      font-family: blinkhead;
+      src: url("{% static 'BlinkHead-Fill.ttf' %}");
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;	
+      font-family: Raleway, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden; /* Disable scrolling */
+    }
+
+    body {
+      background: url("{% static 'machXPT - bg.png' %}");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 100vh; /* Full viewport height */
+    }
+
+    .screen {		
+      background: rgba(93, 84, 164, 0.8); /* 0.8 alpha for 80% opacity */
+      position: relative;	
+      height: 730px;
+      width: 1500px;	
+      box-shadow: 1px 1px 50px black;
+      border-radius: 20px;
+    }
+
+    .text{
+      position: absolute;
+      color: #7875B5;
+      text-decoration: none;
+      padding-left: 10px;
+      padding-top: 10px;
+    }
+      
+    .login{
+      margin-left: 4vh;
+      font-family: Raleway, sans-serif;
+    }
+
+    .login__field {
+      margin-top: 0px;
+    }
+
+    .login__submit {
+      background: #fff;
+      font-size: 14px;
+      padding: 16px 20px;
+      border-radius: 26px;
+      border: 1px solid #D4D3E8;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      width: 10%;
+      color: #4C489D;
+      box-shadow: 0px 2px 2px #5C5696;
+      cursor: pointer;
+      transition: .2s;
+      position: absolute;
+      bottom: 25px;
+      left: 10px;
+      margin-left: 50vh;
+    }
+
+    .login__submit:hover{
+      background: #4C489D;
+      color: #fff;
+      box-shadow: 0px 2px 0px #fff;
+      transition: .2s;
+      border-color: #6A679E;
+      outline: none;
+      .button__icon{
+        color: #fff;
+      }
+    }
+
+    .button__icon {
+      font-size: 24px;
+      margin-left: auto;
+      color: #7875B5;
+    }
+
+    .code-snippet {
+      border: none;
+      border-bottom: 2px solid #D1D1D4;
+      border: #fff;
+      padding: 10px;
+      padding-left: 24px;
+      padding-top: 20px;
+      font-weight: 700;
+      width: 120vh;
+      height: 50vh;
+      transition: .2s;
+      resize: none;
+      border-radius: 1.5vh;
+    }
+
+
+    .code-snippet-text, .doubts-text, .answer-text{
+      font-family: blinkHead;
+      color: #fff;
+      margin: 1vh;
+      text-transform: uppercase;
+    }
+
+    .doubts{
+      border: none;
+      border-bottom: 2px solid #D1D1D4;
+      border: #fff;
+      padding: 10px;
+      padding-left: 24px;
+      padding-top: 20px;
+      font-weight: 700;
+      width: 120vh;
+      height: 22vh;
+      transition: .2s;
+      resize: none;
+      border-radius: 1.5vh;
+    }
+
+    .answer__field{
+      position: absolute;
+      margin-left: 125vh;
+      top: 0;
+    }
+
+    .answers{
+      width: 70vh;
+      height: 90vh;
+      border-radius: 1.5vh;
+      resize: none;
+      padding: 10px;
+      padding-left: 24px;
+      padding-top: 20px;
+      font-weight: 700;
+      background: rgb(62, 56, 56);
+      color: #fff;
+    }
+
+    .mach-thinking{
+      position: absolute;
+      height: 120px;
+      right: 20px;
+      bottom: 11px;
+      filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.8));
+    }
+
+    #loadingMessage{
+      color: #fff;
+      font-family: blinkhead;
+      text-transform: uppercase;
+      position: absolute;
+      right: 100px;
+      top: 7px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="screen">
+      <div class="screen__content">
+        <form id="machForm" class="login">
+          <div class="login__field">
+            <p class="code-snippet-text"><\> Code (Snippet)</p>
+            <textarea id="codeSnippet" class="code-snippet" placeholder="Enter your code here&#10;&#10;(If you don't have a code but just a doubt, you can leave it)"></textarea>
+          </div>
+          <div class="login__field">
+            <p class="doubts-text">? Doubt</p>
+            <textarea id="doubt" class="doubts" placeholder="Ask your doubt here"></textarea>
+          </div>
+          <div class="answer__field">
+            <p class="answer-text">mach's answer</p>
+            <textarea id="confirm" class="answers" placeholder="Mach will say his answer here..." readonly></textarea>
+          </div>
+          <button type="submit" class="button login__submit">
+            <span class="button__text">ask-mach</span>
+            <i class="button__icon fas fa-chevron-right"></i>
+          </button>
+          <div id="loadingMessage" style="display: none;">(Hmm... Mach is Thinking...)</div>
+        </form>
+      </div>
+    </div>
+    <img class="mach-thinking" src="{% static 'mach-thinking.png' %}" alt="">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#machForm').submit(function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        // Show loading message
+        $('#loadingMessage').show();
+        
+        // Gather form data
+        var codeSnippet = $('#codeSnippet').val();
+        var doubt = $('#doubt').val();
+        
+        // Send form data to Django view using AJAX
+        $.ajax({
+          type: 'POST',
+          url: '{% url "machXPT:submit_form" %}',
+          data: {
+            code_snippet: codeSnippet,
+            doubt: doubt,
+            csrfmiddlewaretoken: '{{ csrf_token }}'
+          },
+          success: function(response) {
+            // Update textarea with the response
+            $('#confirm').val(response.answer);
+          },
+          error: function(xhr, status, error) {
+            // Handle errors if any
+            console.error(xhr.responseText);
+          },
+          complete: function() {
+            // Hide loading message
+            $('#loadingMessage').hide();
+          }
+        });
+      });
+    });
+  </script>  
+</body>
+</html>

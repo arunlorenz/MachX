@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+    #custom apps
     "main",
     "users",
+    "machXPT",
 ]
 
 MIDDLEWARE = [
@@ -124,7 +127,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_URL = "/static/"
 STATICFILES_DIRS =  [
                         os.path.join(BASE_DIR, "main\\static"),
-                        os.path.join(BASE_DIR, "users\\static")
+                        os.path.join(BASE_DIR, "users\\static"),
+                        os.path.join(BASE_DIR, "machXPT\\static"),
                     ]
 
 
