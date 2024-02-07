@@ -20,7 +20,7 @@ def generate_answer(code_snippet, doubt):
         return response.text
     
     except Exception as e:
-        return str(e)
+        return "Oops! Some error occured please try again!"
 
 def ask_mach(request):
     return render(request, "machXPT.html")
