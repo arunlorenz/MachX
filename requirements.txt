@@ -89,3 +89,4 @@ virtualenv==20.25.0
 wrapt==1.15.0
 yarg==0.1.9
 yarl==1.9.4
+google-generativeai==0.3.2
